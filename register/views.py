@@ -45,6 +45,7 @@ def sendmail(request):
   msg['Subject'] = "Se ha generado un comentario respecto a una de sus respuestas."
   body = html_content
   msg.attach(MIMEText(body, 'html'))
+  msg.attach('invoice.csv', csvfile.getvalue(), 'text/csv')
   server = smtplib.SMTP('smtp.gmail.com', 587)
   server.starttls()
   server.login(fromaddr, "digimundounam")

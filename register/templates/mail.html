@@ -81,7 +81,8 @@
 
     table.container {
         background: #fefefe;
-        width: 580px;
+        width: 100%;
+        max-width: 580px;
         margin: 0 auto;
         Margin: 0 auto;
         text-align: inherit; }
@@ -1347,7 +1348,7 @@
         <tr>
           <th>
                   <center data-parsed="">
-                      <img src="https://www.sendwithus.com/assets/img/zurb-template-images/logo-placeholder.png" class="swu-logotext-center" alt="Logo" align="center">
+                      <img src="http://grupodeganmex.com.mx/wp-content/uploads/2017/03/infra-logo-1024x336.png" class="swu-logotext-center" alt="Logo" align="center">
                   </center>
                 </th>
 <th class="expander"></th>
@@ -1360,7 +1361,7 @@
       <table>
         <tr>
           <th>
-                  <h1 class="text-center">Your Receipt</h1>
+                  <h1 class="text-center">Listado de ventas</h1>
                   <center data-parsed="">
                   <img src="https://www.sendwithus.com/assets/img/zurb-template-images/cat-placeholder.png" valign="bottom" alt="Masthead Image" align="center" class="text-center">
                   </center>
@@ -1387,9 +1388,10 @@
       <table>
         <tr>
           <th>
-                <h5>Hi, {{first_name}}</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h3>Saludos</h3>
+                  <p>A continuación encontrarás un listado con la información provista por el 'ICE':</p>
                   <br>
+                  <h5>Remolque:</h5>
                   
                   <hr>
                 </th>
@@ -1403,7 +1405,7 @@
       <table>
         <tr>
           <th>
-                  <b>Item</b>
+                  <b>Producto</b>
                 </th>
         </tr>
       </table>
@@ -1412,7 +1414,7 @@
       <table>
         <tr>
           <th>
-                  <b>Price</b>
+                  <b>Cantidad</b>
                 </th>
         </tr>
       </table>
@@ -1421,7 +1423,7 @@
       <table>
         <tr>
           <th>
-                  <b>Quantity</b>
+                  <b>Precio</b>
                 </th>
         </tr>
       </table>
@@ -1430,7 +1432,7 @@
       <table>
         <tr>
           <th>
-                  <b>Tax</b>
+                  <b>Unidades</b>
                 </th>
         </tr>
       </table>
@@ -1445,6 +1447,13 @@
       </table>
     </th>
               </tr></tbody></table>
+
+
+
+<!-- End of for iteration -->
+
+
+
               <table class="row"><tbody><tr>
             
                <table class="row"><tbody><tr> <!-- Receipt first row -->
@@ -1509,55 +1518,13 @@
       </table>
     </th>
               </tr></tbody></table>
+
+
             
-            
-               <table class="row"><tbody><tr> <!-- Receipt 2nd row -->
-                    <th class="small-12 large-4 columns first">
-      <table>
-        <tr>
-          <th>
-                  Widget 2
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns">
-      <table>
-        <tr>
-          <th>
-                  $5.99
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns">
-      <table>
-        <tr>
-          <th>
-                  1
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns">
-      <table>
-        <tr>
-          <th>
-                  $0.00
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns last">
-      <table>
-        <tr>
-          <th>
-                  $5.99
-                </th>
-        </tr>
-      </table>
-    </th>
-              </tr></tbody></table>
+<!-- End of for iteration -->
+
+
+               
             
               <table class="row show-for-large"><tbody><tr> <!-- Spacer -->
                     <th class="small-12 large-12 columns first last">
@@ -1573,7 +1540,12 @@
     </th>
               </tr></tbody></table>
               
-              <table class="row"><tbody><tr> <!-- Receipt total -->
+              <table class="row"><tbody><tr> 
+
+
+<!-- Receipt total -->
+
+
                     <th class="small-12 large-4 columns first">
       <table>
         <tr>
@@ -1621,29 +1593,7 @@
     </th>
               </tr></tbody></table>
             
-              <table class="row"><tbody><tr> <!-- Call to action button -->
-                    <th class="small-12 large-12 columns first last">
-      <table>
-        <tr>
-          <th>
-                  <center data-parsed="">
-                    <br align="center" class="text-center"><br align="center" class="text-center">
-                    <div class="button">
-                      <!--[if mso]>
-                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:40px;v-text-anchor:middle;width:160px;" arcsize="8%" strokecolor="#f7931d" fillcolor="#f7931d">
-                          <w:anchorlock/>
-                          <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">View Full Details</center>
-                        </v:roundrect>
-                      <![endif]-->
-                      <a href="#" style="background-color:#f7931d;border:0px solid #f7931d;border-radius:3px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:16px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:160px;-webkit-text-size-adjust:none;mso-hide:all;">View Full Details</a>
-                    </div>
-                  </center>
-                </th>
-<th class="expander"></th>
-        </tr>
-      </table>
-    </th>
-              </tr></tbody></table>
+              
               <table class="row"><tbody><tr> <!--This row adds the gap between masthead and digest content -->
                     <th class="small-12 large-12 columns first last">
       <table>
@@ -1664,7 +1614,8 @@
       <table>
         <tr>
           <th>
-                  <p class="text-center footercopy">&#xA9; Copyright 2016 Sendwithus. All Rights Reserved.</p>
+                <a href="http://digimundo.com.mx" target="_blank"><p class="text-center footercopy">&#xA9; Copyright 2018 DIGIMUNDO TECHNOLOGIES. All Rights Reserved.</p></a>
+                  
                 </th>
 <th class="expander"></th>
         </tr>
