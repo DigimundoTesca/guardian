@@ -5,4 +5,5 @@ app_name = 'register'
 
 urlpatterns = [
     url(r'^$', views.index, name='inicio'),
+    url(r'^correo/$', views.mail, name='correo'),
 ]

@@ -18,6 +18,14 @@ def index(request):
   return render(request, template, context)
 
 
+def mail(request):
+  template = 'mail.html'
+  context = {
+  'title': "GUARDIAN",
+  }
+  return render(request, template, context)
+
+
 def sendmail(request):
 
   new_context = {
