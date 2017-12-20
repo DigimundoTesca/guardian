@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es" xml:lang="es">
   <head>
@@ -1348,7 +1349,7 @@
         <tr>
           <th>
                   <center data-parsed="">
-                      <img src="http://grupodeganmex.com.mx/wp-content/uploads/2017/03/infra-logo-1024x336.png" class="swu-logotext-center" alt="Logo" align="center">
+                  <img src="{% static 'images/logo.png' %}" valign="bottom" alt="Masthead Image" align="center" class="text-center" style="max-height:250px; !important:">
                   </center>
                 </th>
 <th class="expander"></th>
@@ -1362,9 +1363,6 @@
         <tr>
           <th>
                   <h1 class="text-center">Listado de ventas</h1>
-                  <center data-parsed="">
-                  <img src="https://www.sendwithus.com/assets/img/zurb-template-images/cat-placeholder.png" valign="bottom" alt="Masthead Image" align="center" class="text-center">
-                  </center>
                 </th>
 <th class="expander"></th>
         </tr>
