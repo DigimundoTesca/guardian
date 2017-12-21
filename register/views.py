@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -28,10 +29,11 @@ def mail(request):
 
 def sendmail(request):
 
+  deliver = Trailer.objects.all().order_by('-id')
+
   new_context = {
-  'title': base.title,
-  'consult': base.description,
-  'url': get_current_site(request).domain,
+  'trailer': deliver.number,
+  'consult': deliver,
   }
   template = get_template('mail.html')
   html_content = template.render(new_context)
