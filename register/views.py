@@ -39,18 +39,18 @@ def sendmail(request):
   html_content = template.render(new_context)
 
 
-  fromaddr = "albeitarunam@gmail.com"
+  fromaddr = "itzli2000@gmail.com"
   toaddr = email_user
   msg = MIMEMultipart()
   msg['From'] = fromaddr
   msg['To'] = toaddr
-  msg['Subject'] = "Se ha generado un comentario respecto a una de sus respuestas."
+  msg['Subject'] = "Información de ventas 'ICE'"
   body = html_content
   msg.attach(MIMEText(body, 'html'))
   # msg.attach('invoice.csv', csvfile.getvalue(), 'text/csv')
   server = smtplib.SMTP('smtp.gmail.com', 587)
   server.starttls()
-  server.login(fromaddr, "digimundounam")
+  server.login(fromaddr, "molinona&9")
   text = msg.as_string()
   server.sendmail(fromaddr, toaddr, text)
   server.quit()
