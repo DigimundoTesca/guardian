@@ -1389,7 +1389,7 @@
                 <h3>Saludos</h3>
                   <p>A continuación encontrarás un listado con la información provista por el 'ICE':</p>
                   <br>
-                  <h5>Remolque:</h5>
+                  <h5>Remolque:{{trailer}}</h5>
                   
                   <hr>
                 </th>
@@ -1458,7 +1458,7 @@
 
 <!-- Start 'for' iteration -->
 
-
+{% for consult in cons %}
 
               <table class="row"><tbody><tr>
             
@@ -1533,7 +1533,7 @@
     </th>
               </tr></tbody></table>
 
-
+{% endfor %}
             
 <!-- End of for iteration -->
 
@@ -1555,57 +1555,6 @@
               </tr></tbody></table>
               
               <table class="row"><tbody><tr> 
-
-
-<!-- Receipt total -->
-
-
-                    <th class="small-12 large-4 columns first">
-      <table>
-        <tr>
-          <th>
-                  &#xA0;
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns">
-      <table>
-        <tr>
-          <th>
-                  &#xA0;
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns">
-      <table>
-        <tr>
-          <th>
-                  &#xA0;
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns">
-      <table>
-        <tr>
-          <th>
-                  Total
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns last">
-      <table>
-        <tr>
-          <th>
-                  <b>$8.98</b>
-                </th>
-        </tr>
-      </table>
-    </th>
-              </tr></tbody></table>
             
               
               <table class="row"><tbody><tr> <!--This row adds the gap between masthead and digest content -->

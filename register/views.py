@@ -29,11 +29,11 @@ def mail(request):
 
 def sendmail(request):
 
-  deliver = Trailer.objects.all().order_by('-id')
+  deliveries = Trailer.objects.all().order_by('-id')
 
   new_context = {
-  'trailer': deliver.number,
-  'consult': deliver,
+  'trailer': deliveries.number,
+  'cons': deliveries,
   }
   template = get_template('mail.html')
   html_content = template.render(new_context)
