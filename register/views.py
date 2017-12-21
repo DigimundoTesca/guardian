@@ -24,6 +24,8 @@ from register.models import Delivery
 
 def index(request):
   template = 'index.html'
+  for p in Delivery.objects.raw('SELECT * FROM register_delivery'):
+    print(p)
   context = {
   'title': "GUARDIAN",
   }
@@ -69,60 +71,53 @@ def sendmail(request):
   return render(request, template, context)
 
 
-class ReportDelivery(TemplateView):
+def get(self, request, *args, **kwargs):
   """
-  Vista basada en clases que retorna un archivo de reporte de formato xls (Excel)
-      HttpResponse de content_type='application/ms-excel'
-  Para obtener archivo, debe ser llamado desde petición get
+  Funcionamiento:
+      Para la generación de los campos, unicamente se deben cargar los modelos
+      y sus campos respectivos, así como sus inner joins que se requieren para
+      mostrarse en el excel.
   """
+  # Se cargan los modelos para insertar la información
+  deliverys = Delivery.objects.all()
+  # Se el objeto xls
+  workbook = Workbook()
+  # Contador para iniciar desde la fila 4 a colocar la información de los modelos
+  count = 3
+  # Activa la hoja de excel 1 para trabajar
+  ws1 = workbook.active
+  # Inserta contenido a celdas
+  ws1.title = "Reporte de entregas"
+  ws1['A1'] = 'Reporte general de entregas'
+  # ws1.column_dimensions['D3'].width = 150
+  # Aplica estilos a las celdas
+  ws1['A1'].alignment = Alignment(horizontal='center')
+  ws1.merge_cells('A1:G1')
 
-  def get(self, request, *args, **kwargs):
-    """
-    Funcionamiento:
-        Para la generación de los campos, unicamente se deben cargar los modelos
-        y sus campos respectivos, así como sus inner joins que se requieren para
-        mostrarse en el excel.
-    """
-    # Se cargan los modelos para insertar la información
-    deliverys = Delivery.objects.all()
-    # Se el objeto xls
-    workbook = Workbook()
-    # Contador para iniciar desde la fila 4 a colocar la información de los modelos
-    count = 3
-    # Activa la hoja de excel 1 para trabajar
-    ws1 = workbook.active
-    # Inserta contenido a celdas
-    ws1.title = "Reporte de entregas"
-    ws1['A1'] = 'Reporte general de entregas'
-    # ws1.column_dimensions['D3'].width = 150
-    # Aplica estilos a las celdas
-    ws1['A1'].alignment = Alignment(horizontal='center')
-    ws1.merge_cells('A1:G1')
+  # Se definen los encabezados de las columnas
+  ws1['A2'] = 'ID'
+  ws1['B2'] = 'Numero'
+  ws1['C2'] = 'Trailer'
+  ws1['D2'] = 'Fecha'
+  ws1['E2'] = 'Unidades'
+  ws1['F2'] = 'Producto'
+  ws1['G2'] = 'Total'
+  ws1.column_dimensions["D"].width = 25
+  c = ws1['D2']
+  c.font = Font(size=12)
+  for delivery in deliverys:
+    # Itera celdas y añade contenido
+    ws1.cell(row=count, column=1, value=delivery.id)
+    ws1.cell(row=count, column=2, value=delivery.number)
+    ws1.cell(row=count, column=3, value=delivery.trailer)
+    ws1.cell(row=count, column=4, value=delivery.date)
+    ws1.cell(row=count, column=5, value=delivery.units)
+    ws1.cell(row=count, column=6, value=delivery.product)
+    ws1.cell(row=count, column=7, value=delivery.total)
 
-    # Se definen los encabezados de las columnas
-    ws1['A2'] = 'ID'
-    ws1['B2'] = 'Numero'
-    ws1['C2'] = 'Trailer'
-    ws1['D2'] = 'Fecha'
-    ws1['E2'] = 'Unidades'
-    ws1['F2'] = 'Producto'
-    ws1['G2'] = 'Total'
-    ws1.column_dimensions["D"].width = 25
-    c = ws1['D2']
-    c.font = Font(size=12)
-    for delivery in deliverys:
-      # Itera celdas y añade contenido
-      ws1.cell(row=count, column=1, value=delivery.id)
-      ws1.cell(row=count, column=2, value=delivery.number)
-      ws1.cell(row=count, column=3, value=delivery.trailer)
-      ws1.cell(row=count, column=4, value=delivery.date)
-      ws1.cell(row=count, column=5, value=delivery.units)
-      ws1.cell(row=count, column=6, value=delivery.product)
-      ws1.cell(row=count, column=7, value=delivery.total)
-
-    file_name = 'Reporte_General_De_Usuarios_{0}.xlsx'.format(datetime.now().strftime("%I-%M%p_%d-%m-%Y"))
-    response = HttpResponse(content_type='application/ms-excel')
-    content = 'attachment; filename={0}'.format(file_name)
-    response['Content-Disposition'] = content
-    workbook.save(response)
-    return response
+  file_name = 'Reporte_General_De_Entregas_{0}.xlsx'
+  response = HttpResponse(content_type='application/ms-excel')
+  content = 'attachment; filename={0}'.format(file_name)
+  response['Content-Disposition'] = content
+  workbook.save(response)
+  return response
