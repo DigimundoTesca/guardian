@@ -54,8 +54,10 @@ def sendmail(request):
 
 
   fromaddr = "itzli2000@gmail.com"
-  toaddr = email_user
-  msg = MIMEMultipart()
+  toaddr = "itzli2000@msn.com"
+  msg = EmailMultiAlternatives(subject="Información de ventas 'ICE'",
+                               body=html_content,)
+  msg.attach(MIMEText('Reporte_General_De_Entregas.xlsx', attachment.read(), 'text/xlsx'))
   msg['From'] = fromaddr
   msg['To'] = toaddr
   msg['Subject'] = "Información de ventas 'ICE'"
