@@ -16,6 +16,7 @@ class Delivery(models.Model):
     units = models.CharField(max_length=10)
     product = models.CharField(max_length=2)
     total = models.PositiveIntegerField()
+    deliver = models.PositiveIntegerField()
 
     def __str__(self):
         return '%s' % self.number

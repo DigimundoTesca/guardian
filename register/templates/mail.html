@@ -1412,16 +1412,7 @@
       <table>
         <tr>
           <th>
-                  <b>Cantidad</b>
-                </th>
-        </tr>
-      </table>
-    </th>
-                    <th class="small-12 large-2 columns">
-      <table>
-        <tr>
-          <th>
-                  <b>Precio</b>
+                  <b>Entrega</b>
                 </th>
         </tr>
       </table>
@@ -1435,11 +1426,28 @@
         </tr>
       </table>
     </th>
+                    <th class="small-12 large-2 columns">
+      <table>
+        <tr>
+          <th>
+                  <b>Fecha</b>
+                </th>
+        </tr>
+      </table>
+                    <th class="small-12 large-2 columns">
+      <table>
+        <tr>
+          <th>
+                  <b>No. de entrega</b>
+                </th>
+        </tr>
+      </table>
+    </th>
                     <th class="small-12 large-2 columns last">
       <table>
         <tr>
           <th>
-                  <b>Total</b>
+                  <b>Total acumulado</b>
                 </th>
         </tr>
       </table>
@@ -1448,7 +1456,7 @@
 
 
 
-<!-- End of for iteration -->
+<!-- Start 'for' iteration -->
 
 
 
@@ -1459,7 +1467,7 @@
       <table>
         <tr>
           <th>
-                  Widget 1
+                  {{consult.product}}
                 </th>
         </tr>
       </table>
@@ -1468,7 +1476,7 @@
       <table>
         <tr>
           <th>
-                  $2.99
+                  {{consult.deliver}}
                 </th>
         </tr>
       </table>
@@ -1477,7 +1485,7 @@
       <table>
         <tr>
           <th>
-                  1
+                  {{consult.units}}
                 </th>
         </tr>
       </table>
@@ -1486,7 +1494,7 @@
       <table>
         <tr>
           <th>
-                  $0.00
+                  {{consult.date}}
                 </th>
         </tr>
       </table>
@@ -1495,7 +1503,15 @@
       <table>
         <tr>
           <th>
-                  $2.99
+                  {{consult.number}}
+                </th>
+        </tr>
+      </table>
+                    <th class="small-12 large-2 columns last">
+      <table>
+        <tr>
+          <th>
+                  {{consult.total}}
                 </th>
         </tr>
       </table>
