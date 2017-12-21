@@ -32,7 +32,7 @@ def sendmail(request):
   deliveries = Trailer.objects.all().order_by('-id')
 
   new_context = {
-  'trailer': deliveries.number,
+  'trailer': deliveries.trailer,
   'cons': deliveries,
   }
   template = get_template('mail.html')
