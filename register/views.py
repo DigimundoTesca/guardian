@@ -32,18 +32,21 @@ def index(request):
 
 def mail(request):
   template = 'mail.html'
+  deliveries = Delivery.objects.all()
+
   context = {
-  'title': "GUARDIAN",
+    'trailer': deliveries[0].trailer,
+    'cons': deliveries,
   }
   return render(request, template, context)
 
 
 def sendmail(request):
 
-  deliveries = Trailer.objects.all().order_by('-id')
+  deliveries = Delivery.objects.all()
 
   new_context = {
-  'trailer': deliveries.trailer,
+  'trailer': deliveries[0].trailer,
   'cons': deliveries,
   }
   template = get_template('mail.html')
