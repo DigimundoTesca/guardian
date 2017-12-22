@@ -55,6 +55,7 @@ def sendmail(request):
 
   fromaddr = "itzli2000@gmail.com"
   toaddr = "itzli2000@msn.com"
+  # Error on create html template
   msg = EmailMultiAlternatives(subject="Información de ventas 'ICE'",
                                body=html_content,)
   msg.attach(MIMEText('Reporte_General_De_Entregas.xlsx', attachment.read(), 'text/xlsx'))
